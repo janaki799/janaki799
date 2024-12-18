@@ -1,0 +1,221 @@
+/* General styles */
+body {
+    font-family: 'Roboto', sans-serif;
+    background: linear-gradient(135deg, #f5f7fa 0%,#0056b3 100%);
+    margin: 0;
+    padding: 0;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.container {
+    background-color: #FFFFFF;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    padding: 2rem;
+    max-width: 500px;
+    width: 100%;
+}
+/* Flip Animation */
+.flip {
+    transform: rotateY(180deg); /* Flip effect */
+}
+
+.container .form-group {
+    margin-bottom: 1.5rem;
+}
+
+/* Label */
+label {
+    display: block;
+    margin-bottom: 0.5rem;
+    color: #555;
+}
+
+/* Input fields and select */
+input[type="text"],
+input[type="date"],
+select,
+textarea {
+    width: 100%;
+    padding: 0.75rem;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    font-size: 1rem;
+    transition: border-color 0.3s ease;
+}
+
+input[type="text"]:focus,
+input[type="date"]:focus,
+select:focus,
+textarea:focus {
+    border-color: #0056b3;
+    outline: none;
+}
+
+/* Button styles */
+button {
+    background-color: #0056b3;
+    color: white;
+    border: none;
+    padding: 0.75rem 1.5rem;
+    font-size: 1rem;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    display: block;
+    margin: 1rem auto 0 auto; /* Margin at top for spacing from input */
+}
+
+button:hover {
+    background-color: #004494;
+}
+
+/* Textarea - auto-expand */
+textarea {
+    resize: none;
+    min-height: 100px;
+    height: auto;
+    padding: 0.75rem;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    font-size: 1rem;
+}
+
+textarea:focus {
+    border-color: #0056b3;
+    outline: none;
+}
+
+/* Responsive styles */
+@media (max-width: 600px) {
+    .container {
+        width: 90%;
+        padding: 1rem; /* Reduced padding for mobile */
+    }
+
+    input, select, textarea {
+        max-width: 100%;
+    }
+
+    button {
+        padding: 0.75rem 1rem; /* Adjusted button padding for mobile */
+    }
+}
+
+/* Spinner Overlay */
+.spinner-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(255, 255, 255, 0.8);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+    display: none;
+}
+
+/* Spinner Animation */
+.spinner-circle {
+    border: 8px solid #f3f3f3;
+    border-top: 8px solid #3498db;
+    border-radius: 50%;
+    width: 50px;
+    height: 50px;
+    animation: spin 1s linear infinite;
+}
+
+/* Spinner animation keyframes */
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+.spinner-overlay p {
+    margin-top: 10px;
+    font-size: 1.2em;
+    color: #333;
+}
+textarea {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    font-size: 1rem;
+    resize: none;  /* Disable manual resizing */
+    min-height: 50px;  /* Set the initial height */
+    overflow: hidden;  /* Hide scrollbar */
+}
+
+/* Optional: Add focus effect */
+textarea:focus {
+    border-color: #0056b3;
+    outline: none;
+}
+
+/* General styles for flip-container */
+.flip-container{
+    perspective: 1000px;
+    width: 300px;
+    height: 200px;
+    margin: 50px auto;
+}
+
+/* Flip Card */
+.flip-container{
+    position: relative;
+    width: 100%;
+    height: 100%;
+    transition: transform 0.6s; /* Smooth flip transition */
+    transform-style: preserve-3d;
+}
+
+/* Front side of the card */
+.flip-card-front, .flip-card-back {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    backface-visibility: hidden; /* Hides back of the card when flipped */
+}
+
+/* Front content (College Code input) */
+.flip-card-front {
+    background: #fff;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+/* Back content (Thank you message) */
+.flip-card-back {
+    background: #f8f8f8;
+    transform: rotateY(180deg); /* Initially hide the back by rotating it */
+    padding: 20px;
+    text-align: center;
+}
+
+/* Flip effect when the form is submitted */
+
+@keyframes flip {
+    0% {
+        transform: perspective(400px) rotateY(90deg);
+    }
+    50% {
+        transform: perspective(400px) rotateY(0deg); /* Flip halfway */
+    }
+}
+
+.flip-animation {
+    animation: flip 1s ease-in-out forwards; /* Runs once */
+}
+
+

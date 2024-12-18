@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Incident Reporting Form</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container flip-animation ">
+        <div class="form-container ">
+            <h1>Submit Incident Report</h1>
+            <form id="incidentForm" enctype="multipart/form-data" method="POST" action="http://localhost:3000/reports">
+                <input type="hidden" id="collegeCode" name="collegeCode" value="8P">
+    
+                <label for="incidentCategory">Incident Category:</label>
+                <select id="incidentCategory" name="incidentCategory">
+                    <option value="maintenance">Maintenance Issues</option>
+                    <option value="safety">Safety and Security Incidents</option>
+                    <option value="academic">Academic Incidents</option>
+                    <option value="health">Health and Safety Concerns</option>
+                    <option value="bullying">Bullying and Harassment</option>
+                    <option value="environment">Environmental Concerns</option>
+                    <option value="transport">Transportation Issues</option>
+                    <option value="it">IT and Technology Problems</option>
+                    <option value="others">Others</option>
+                </select>
+                 <br>
+                 <br>
+                <label for="incidentType">Incident Type:</label>
+                <select id="incidentType" name="incidentType">
+                    <option value="brokenEquipment">Broken Equipment</option>
+                    <option value="plumbingIssues">Plumbing Issues</option>
+                    <option value="fireHazard">Fire Hazard</option>
+                    <option value="cheating">Cheating or Plagiarism</option>
+                    <!-- Add more options based on the categories -->
+                </select>
+                 <br>
+                 <br>
+                <label for="description">Description:</label>
+                <textarea id="description" name="description"  placeholder="Describe the incident like where it happened (e.g., location)" required></textarea>
+                 <br>
+                 <br>
+                <label for="date">Date:</label>
+                <input type="date" id="date" name="date" required>
+                 <br>
+                 <br>
+                <!-- Image Upload Section -->
+                <label for="image">Upload Image (optional):</label>
+                <input type="file" id="image" name="image"><br>
+            
+                <span id="fileName"></span><br>
+
+                <button type="submit">Submit Report</button>
+            </form>
+        </div>
+    </div>
+
+    <!-- Loading Spinner -->
+    <div id="loading-spinner" class="spinner-overlay">
+        <div class="spinner-circle"></div>
+        <p>Processing, please wait...</p>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
+
+
+
+
