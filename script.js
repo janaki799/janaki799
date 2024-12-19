@@ -1,5 +1,5 @@
 // Constants
-const BACKEND_URL = 'https://aarmahaveerincidentreporting.vercel.app';
+const BACKEND_URL = 'process.env.REACT_APP_BACKEND_URL';
 const COLLEGE_CODE = '8P';
 
 // Utility function to show/hide spinner
