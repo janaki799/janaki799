@@ -1,5 +1,5 @@
 // Constants
-const BACKEND_URL = 'http://localhost:3000';
+const BACKEND_URL = 'https://aarmahaveerincidentreporting.vercel.app';
 const COLLEGE_CODE = '8P';
 
 // Utility function to show/hide spinner
@@ -221,7 +221,6 @@ textarea.addEventListener('input', function () {
     this.style.height = 'auto';  // Reset the height to auto to recalculate
     this.style.height = (this.scrollHeight) + 'px';  // Set the height to the scrollHeight (content height)
 });
-document.getElementById('flipCard').classList.add('flipped');
 
 
 
