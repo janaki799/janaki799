@@ -1,6 +1,6 @@
 
 const isDevelopment = window.location.hostname === '127.0.0.1' || window.location.hostname === 'localhost';
-const BACKEND_URL = isDevelopment ? 'http://localhost:3000' : 'https://aarmahaveerincidentreporting.vercel.app';
+const BACKEND_URL = isDevelopment ? 'http://localhost:3000' : 'https://my-project-2spwy90lz-janaki799s-projects.vercel.app';
 const COLLEGE_CODE = '8P';
 
 // Utility function to show/hide spinner
