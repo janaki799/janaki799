@@ -1,5 +1,4 @@
-// Constants
-// In script.js
+
 const isDevelopment = window.location.hostname === '127.0.0.1' || window.location.hostname === 'localhost';
 const BACKEND_URL = isDevelopment ? 'http://localhost:3000' : 'https://aarmahaveerincidentreporting.vercel.app';
 const COLLEGE_CODE = '8P';
@@ -129,7 +128,7 @@ async function submitReport(formData) {
         const response = await fetch(`${BACKEND_URL}/reports`, {
             method: 'POST',
             body: formData,
-             credentials: 'include',
+        
             mode: 'cors'
         });
 
@@ -233,6 +232,14 @@ textarea.addEventListener('input', function () {
     this.style.height = 'auto';  // Reset the height to auto to recalculate
     this.style.height = (this.scrollHeight) + 'px';  // Set the height to the scrollHeight (content height)
 });
+
+
+
+      
+
+
+
+      
 
 
 
