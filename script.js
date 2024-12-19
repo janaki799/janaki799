@@ -1,5 +1,7 @@
 // Constants
-const BACKEND_URL = 'https://aarmahaveerincidentreporting.vercel.app';
+// In script.js
+const isDevelopment = window.location.hostname === '127.0.0.1' || window.location.hostname === 'localhost';
+const BACKEND_URL = isDevelopment ? 'http://localhost:3000' : 'https://aarmahaveerincidentreporting.vercel.app';
 const COLLEGE_CODE = '8P';
 
 // Utility function to show/hide spinner
@@ -127,7 +129,14 @@ async function submitReport(formData) {
         const response = await fetch(`${BACKEND_URL}/reports`, {
             method: 'POST',
             body: formData,
+             credentials: 'include',
+            mode: 'cors'
         });
+
+        if (!response.ok) {
+            const errorData = await response.json().catch(() => null);
+            throw new Error(errorData?.error || `HTTP error! status: ${response.status}`);
+        }
 
         const data = await response.json();
 
@@ -159,17 +168,20 @@ document.addEventListener('DOMContentLoaded', () => {
 
                 // Gather form data
                 const formData = new FormData(incidentForm);
+
+                const imageFile = document.getElementById('image').files[0];
+                if (imageFile) {
+                    console.log('Image file:', {
+                        name: imageFile.name,
+                        size: imageFile.size,
+                        type: imageFile.type
+                    });
+                }
                 formData.set('collegeCode', COLLEGE_CODE);
                 formData.set('incidentCategory', document.getElementById('incidentCategory').value);
                 formData.set('incidentType', document.getElementById('incidentType').value);
                 formData.set('description', document.getElementById('description').value);
                 formData.set('date', document.getElementById('date').value || new Date().toISOString());
-
-                // Handle image file if exists
-                const imageFile = imageInput.files[0];
-                if (imageFile) {
-                    formData.set('image', imageFile);
-                }
 
                 // Submit report
                 const response = await submitReport(formData);
